@@ -9,8 +9,13 @@ import fade
 
 os.syatem( 'cilor' )
 logo =
-
-
+██▒▒
+██▒▒
+██▒▒
+██▒▒
+██▒▒
+██▒▒
+██▒▒
 faded_text = fade.fire(logo)
 print(faded_txt
 host=''
