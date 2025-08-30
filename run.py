@@ -7,7 +7,12 @@ import re
 import argparse
 import fade
 
+os.syatem( 'cilor' )
+logo =
 
+
+faded_text = fade.fire(logo)
+print(faded_txt
 host=''
 headers_useragents=[]
 request_counter=0
