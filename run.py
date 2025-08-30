@@ -1,9 +1,12 @@
+import os
 import requests
 import sys
 import threading
 import random
 import re
 import argparse
+import fade
+
 
 host=''
 headers_useragents=[]
