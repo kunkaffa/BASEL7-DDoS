@@ -26,6 +26,7 @@ printedMsgs = []
 def printMsg(msg):
 	if msg not in printedMsgs:
 		print ("\n"+msg + " after %i requests" % request_counter)
+		print(f"  \033[92mBADAI AL-AQSHA   \033[97mSent packet:. " +ip+ "\033[0m" )
 		printedMsgs.append(msg)
 
 def useragent_list():
