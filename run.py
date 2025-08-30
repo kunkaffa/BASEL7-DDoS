@@ -83,10 +83,14 @@ def initHeaders():
 
 def handleStatusCodes(status_code):
 	global request_counter
-	sys.stdout.write
-	        print("\r%i \033[31mrequest sent" +(str)+ " \033[0m"request_counter)
+	sys.stdout.write(f"\r[÷] \033[33m{time.ctime().split( )[3]} [{str(thread_num)}] ")
     sys.stdout.flush()
-	if status_code == 429:
+    print (f"\033[95m══>> \033[92m[H\033[33mA\033[32mQ\033[33m-4] \033[32mREQUEST_NUM \033[92m" +str(ip)+ "\033[0m")
+    sys.stdout.write(f"\r[×] \033[95m{time.ctime().split( )[3]}\033[94m [{str(thread_num)}] ")
+    sys.stdout.flush()
+    print (f"\033[37m══>> \033[33m[H\033[37mA\033[33mQ\033[37m-4] \033[36mREQUEST_NUM \033[35m" +str(ip)+ "\033[0m")
+    thread_num_mutex.release()
+    if status_code == 429:
 			printMsg("You have been throttled")
 	if status_code == 500:
 		printedMsg("Status code 500 received")
