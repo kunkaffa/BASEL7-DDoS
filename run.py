@@ -86,7 +86,6 @@ def handleStatusCodes(status_code):
 	sys.stdout.write
 	print("\r%i \033[31mATTACK REQUEST SENT \033[33mB A S E - L7\033[0m" % request_counter)
     sys.stdout.flush()
-	sys.stdout.flush()
 	if status_code == 429:
 			printMsg("You have been throttled")
 	if status_code == 500:
