@@ -89,7 +89,6 @@ def handleStatusCodes(status_code):
     sys.stdout.write(f"\r[×] \033[95m{time.ctime().split( )[3]}\033[94m [{str(thread_num)}] ")
     sys.stdout.flush()
     print (f"\033[37m══>> \033[33m[H\033[37mA\033[33mQ\033[37m-4] \033[36mREQUEST_NUM \033[35m" +str(ip)+ "\033[0m")
-    thread_num_mutex.release()
     if status_code == 429:
 			printMsg("You have been throttled")
 	if status_code == 500:
