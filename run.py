@@ -85,7 +85,7 @@ def handleStatusCodes(status_code):
 	sys.stdout.write("\r%i \033[33requests sent" % request_counter)
 	sys.stdout.flush()
 	if status_code == 429:
-			printMsg("\033[92mB A S E L7\033[0")
+		printMsg("\033[92mB A S E L7\033[0")
 	if status_code == 500:
 		printedMsg("Status code 500 received")
 
