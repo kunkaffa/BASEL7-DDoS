@@ -85,7 +85,7 @@ def handleStatusCodes(status_code):
 	global request_counter
 	sys.stdout.write("\r%i \033[92mATTACK REQUEST SENT\033[0m" % request_counter)
 	sys.stdout.flush()
-	print("\033[34m ▒▒ "▒▒+str(url)+▒▒" \033[33m▒▒B A S E▒▒-▒▒L7▒▒\033[0m")
+	print("\033[34m▒▒["▒▒+str(url)+▒▒"] \033[33m▒▒B A S E▒▒-▒▒L7▒▒\033[0m")
 	sys.stdout.flush()
 	print("\033[95m▒▒ ▒▒ ▒▒\033[36m▒▒ ▒▒ ▒▒\033[35m▒▒ ▒▒ ▒▒\033[0m")
 	if status_code == 429:
